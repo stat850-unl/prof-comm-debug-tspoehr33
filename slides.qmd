@@ -1,0 +1,59 @@
+---
+title: "Introduction to Thomas Spoehr"
+author: "Thomas Spoehr" 
+format: 
+  revealjs: default
+  beamer: default
+---
+
+# Hello!
+
+Hello my name is Thomas Spoehr.
+
+I am engaged to the love my life Kendra.
+
+This is a picture of us when we got engaged.
+
+![Kendra and I after we got engaged](KendraEngament.jpg)
+
+
+# A Little bit about me
+
+- I grew up in Bennington, NE
+- I was born on December 20th, 1999
+- I have had multiple nicknames over the years including but not limited to Big T, the Nebraska Nightmare, and Thomas the Train
+- I have a brother younger brother Patrick and we love to fish together
+
+# My favorite animal 
+
+My favorite animal is an otter
+
+![These are otters](otter.png)
+
+# My favorite plot 
+
+```{r}
+library(ggplot2)
+
+data.women <- women
+
+ggplot(data.women, aes(x = height, y = weight)) + 
+  geom_point()
+
+```
+
+
+# My CV - Check this out!
+
+https://drive.google.com/file/d/1JhESFJnUJNDWXmZoFX-YVDCwIyhwPAZS/view?usp=share_link  
+
+https://github.com/tspoehr33/cv/blob/main/CV_best.pdf 
+
+
+
+
+
+
+
+
+

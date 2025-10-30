@@ -1,0 +1,178 @@
+---
+name: Thomas 
+surname: Spoehr
+position: "Statistics Graduate Student"
+pronouns: him/his
+address: "14782 Eagle St., Bennington, NE"
+phone: 402-671-4622
+www: www.linkedin.com/in/thomas-spoehr-5030b22a8
+email: "spoehrt1@gmail.com"
+#twitter: mariecurie
+github: tspoehr33
+#linkedin: mariecurie
+date: "`r format(Sys.time(), '%B %Y')`"
+output:
+  vitae::awesomecv:
+    page_total: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(dplyr)
+```
+
+# Professional Summary
+Current PhD statistics student with past internship experience and a passion for analyzing/synthesizing data for informed, logical decision-making. Skilled in technical programs such as Python, R, and Microsoft Excel which allow for streamlined results and efficient analysis.
+
+```{r}
+# library(readxl)
+# filename <- read_excel("CV_data.xlsx")
+```
+
+
+# Education
+
+```{r} 
+library(tibble)
+tribble(
+  ~ Degree, ~ Years, ~ Institution, ~ Where,
+  "Mathematics", "2018 - 2022", "Central College", "Pella, IA",
+  "Masters of Arts - Mathematics", "2022 - 2025", "University of Nebraska - Omaha", "Omaha, NE",
+  "Doctorate of Statistics", "2025 - Current", "University of Nebraska - Lincoln", "Lincoln, NE"
+) %>%
+  detailed_entries(Degree, Years, Institution, Where)
+```
+
+# Teaching and Advising 
+
+```{r}
+library(tibble)
+tribble(
+  ~ what, ~ when, ~ with, ~ where, ~ why,
+  "Teaching Assistant", "2025 - Current", "Department of Statistics", "University of Nebraska-Lincoln", list("Planned lessons and assignments, conducted office hours, graded papers and exams", "Acted as teaching assistant for a section of introductory statistics", "Composed and assessed all exams"),
+  "Teaching Assistant", "2023 - 2025", "Department of Mathematics", "University of Nebraska-Omaha", list("Acted as an instructor of record for multiple sections of college algebra", "Implemented active learning techniques with a student focused paradigm", "Applied a standards-based grading system to further student learning and success"),
+  "Teaching Assistant", "2022 - 2023", "Department of Mathematics", "University of Minnesota State - Mankato", list("Acted as instructor of record for multiple sections of precalculus", "Created all materials for course including exams, assignments, and presentation slides", "Graded all assessments for the course")
+) %>%
+  detailed_entries(
+    what = what,
+    when = when,
+    with = with,
+    where = where,
+    why = why
+    )
+```
+
+
+# Research
+
+```{r}
+library(tibble)
+tribble(
+  ~ what, ~ when, ~ with, ~ why,
+  "Master's Student Research", "2024-2025", "University of Nebraska – Omaha",
+  list("Conducted original research which expanded upon existing works in image cryptography", "Created a novel chaotic map and new encryption methodology for more effective and efficient image cryptography", "Failed submission to “Signal Image Processing”; currently resubmitting to other peer-reviewed journals")
+) %>%
+  detailed_entries(
+    what = what,
+    when = when,
+    with = with,
+    why = why
+    )
+```
+
+
+# Conference Presentations
+
+```{r}
+library(tibble)
+tribble(
+  ~ what, ~ when, ~where, ~ why,
+  "Exploring the relationship between preexisting attitudes and resulting attitudes in a first-year college algebra course", "Spring 2025", "Alexandria, VA", "Research for Undergraduate Math Education",
+  "An Innovative Encryption Algorithm Employing Multistep Pixel Manipulation via an Enhanced Chaotic System", "Spring 2025", "Omaha, NE", "MAA Sectional Meeting",
+  "Exploring the relationship between preexisting attitudes and resulting attitudes in a first year college algebra course", "Spring 2024", "Vermillion, SD", "MAA Sectional Meeting",
+  "Midwest Sports Analytics Conference Co-Director", "Fall 2020, 2021", "Pella, IA", "Co-Director",
+  "Investigating the relation between acceleration and impacts on goalies in soccer", "Fall 2020", "Pella, IA", "Midwest Sports Analyics Conference")  %>%
+  detailed_entries(
+    what = what,
+    when = when,
+    where = where,
+    why = why
+    )
+  
+```
+
+
+#Honors and Awards
+```{r}
+library(tibble)
+ tribble(
+   ~ what, ~ when, ~ with, ~ why,
+   "Othmer Fellowship", "2025-Present", "University of Nebraska - Lincoln", "For perceived excelence in candiancy for PhD studies",
+   "APC Meeting Speaker", "2025", "University of Nebraska - Lincoln", "Selected as lone graduate student speaker to defend departmental cuts",
+   "Academic Scholarship", "2018-2022", "Central College", "For excellent academic standing") %>%
+  detailed_entries(
+    what = what,
+    when = when,
+    with = with,
+    why = why
+    )
+
+```
+
+
+# Other 
+```{r}
+library(tibble)
+ tribble(
+   ~ what, ~ when, ~ with,
+   "Member of Graduate Student Association", "2025", "University of Nebraska-Lincoln",
+   "Member of Graphics Group", "2025", "University of Nebraska-Lincoln",
+   "Volunteer at UNO High School Math Competition", "2024", "University of Nebraska-Omaha") %>%
+  detailed_entries(
+    what = what,
+    when = when,
+    with = with
+    )
+```
+
+# Industry
+```{r}
+library(tibble)
+ tribble(
+   ~ what, ~ when, ~ with, ~ where, ~ why,
+   "Supply Chain and Logistics Data Intern", "Summer 2025", "Smeal Fire Appartus", "Snyder. NE", list("Created an automated process using
+Python to monitor vendor quality", "Utilized Microsoft Excel to perform
+extensive analysis on daily, excess, and obsolete inventory which cut 15% of
+unnecessary stock")) %>%
+  detailed_entries(
+    what = what,
+    when = when,
+    with = with,
+    where = where,
+    why = why
+    )
+```
+
+
+# References
+
+```{r}
+library(tibble)
+ tribble(
+    ~ what, ~ when, ~ with, ~ where, ~ why,
+   "Dora Velcsov", "Professor of Mathematics", "University of Nebraska - Omaha",
+   "402-554-3295", "dvelcsov@unomaha.edu", 
+   "Russell Goodman", "Professor of Mathematics", "Central College",
+  "641-628-7640", "goodmanr@central.edu")%>%
+  detailed_entries(
+    what = what,
+    when = when,
+    with = with,
+    where = where,
+    why = why
+    )
+```   
+   
+
+

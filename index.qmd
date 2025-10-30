@@ -17,14 +17,14 @@ options(digits = 3)
 
 In the following examples, evaluate each problem using the criteria of a minimal reproducible example from [this StackOverflow post](https://stackoverflow.com/help/minimal-reproducible-example). 
 
----
+
 Prompt 1 
 
 Specifically, address the following things: 
 
 1. Are the question and problem description complete?
 
-I think that the description of the problem and some proposed solutions are complete. I think I would have liked to see the inquirier ask exactly what theyare having difficulty with. Also, state what their resulting solution would have been i fthe code worked properly.
+I think that the description of the problem and some proposed solutions are complete. I think I would have liked to see the inquirier ask exactly what theyare having difficulty with. Also, state what their resulting solution would have been if the code worked properly.
 
 2. Is the issue reproducible? Does it have a description of the problem, with code that reproduces the problem? What could improve it?
 
@@ -57,18 +57,10 @@ The issue this code has is that in order to append a vector to a vector the vect
 #      meals <- append(meals, as.character(str))
 #    }
 
-#Proposed Solutions
-
- add <- function(str){
-      meals <- append(meals, as.character(str))  
-    }
-    
-    
-add("syrup")
 
 #Error in add("syrup") : object 'meals' not found
 
-## Possible solution 
+## Possible solution 1
 
  add_poss.sol1 <- function(str){
       meals <- c()
@@ -77,7 +69,7 @@ add("syrup")
  
 print(add_poss.sol1("syrup"))
 
-## Another possible solution
+## Another possible solution 2
 
 # you can predefine a vector meals and add this as an argument to your function
 
@@ -94,7 +86,7 @@ print(add_poss.sol2("syrup", meals2))
 [Link](https://stackoverflow.com/questions/39795961/why-doesnt-this-r-function-work?noredirect=1&lq=1) to original SO post. 
 
 
----
+
 Prompt #2
 
 
@@ -151,7 +143,7 @@ The description does include attempted solutions at least but it's just poor.
 
 [Link](https://stackoverflow.com/questions/24123224/function-not-working-r/24141502)
 
----
+
 Prompt 3
 
 1. Are the question and problem description complete?
@@ -200,7 +192,7 @@ You can find this sample file [here](https://raw.githubusercontent.com/unl-stati
 # Your code is not reproducible making it diffucult to wokr with. On thing I would point out is that you ahve loaded library(ggplot2, dplyr) in the same line. I would suggest breaking this out into library(ggplot2) and library(dplyr). I suspect that's why you can see the graphics is because R is loading in ggplot2 but is failing to call the library of dplyr
 ```
 
---- 
+
 Prompt #4
 
 ## Python if elif else statement
@@ -214,24 +206,24 @@ Prompt #4
 > Example:
 <!-- Original Prompt -->
 
-if country == "US":
-    if total <= "50":
-        print "Shipping Costs $6.00"
-    elif total <= "100":
-          print "Shipping Costs $9.00"
-    elif total <= "150":
-          print("Shipping Costs $12.00")
-    else:
-        print "FREE"
-if country == "Canada":
-    if total <= "50":
-        print("Shipping Costs $8.00")
-    elif total <= 100:
-        print "Shipping Costs $12.00"
-    elif total <= "150":
-        print "Shipping Costs $15.00"
-    else:
-        print "FREE"
+<!-- if country == "US": -->
+<!--     if total <= "50": -->
+<!--         print "Shipping Costs $6.00" -->
+<!--     elif total <= "100": -->
+<!--           print "Shipping Costs $9.00" -->
+<!--     elif total <= "150": -->
+<!--           print("Shipping Costs $12.00") -->
+<!--     else: -->
+<!--         print "FREE" -->
+<!-- if country == "Canada": -->
+<!--     if total <= "50": -->
+<!--         print("Shipping Costs $8.00") -->
+<!--     elif total <= 100: -->
+<!--         print "Shipping Costs $12.00" -->
+<!--     elif total <= "150": -->
+<!--         print "Shipping Costs $15.00" -->
+<!--     else: -->
+<!--         print "FREE" -->
 
 1. Are the question and problem description complete?
 
