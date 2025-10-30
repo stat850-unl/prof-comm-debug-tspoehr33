@@ -2,7 +2,7 @@
 title: "Homework: Reproducibility and Professional Communication"
 execute:
   error: true
-author: "Your Name"
+author: "Thomas Spoehr"
 output: html_document
 
 ---
@@ -17,105 +17,163 @@ options(digits = 3)
 
 In the following examples, evaluate each problem using the criteria of a minimal reproducible example from [this StackOverflow post](https://stackoverflow.com/help/minimal-reproducible-example). 
 
+---
+Prompt 1 
+
 Specifically, address the following things: 
 
 1. Are the question and problem description complete?
 
+I think that the description of the problem and some proposed solutions are complete. I think I would have liked to see the inquirier ask exactly what theyare having difficulty with. Also, state what their resulting solution would have been i fthe code worked properly.
+
 2. Is the issue reproducible? Does it have a description of the problem, with code that reproduces the problem? What could improve it?
+
+The code given reproduces the problem which is good. I would be more concise about what the error is with the code. Maybe include the error in the inquiry so that way the solver knows what to expect when running the code.
 
 3. Is the example minimal? Does it include extra code or information that is not necessary?
 
+I would say the example is minimal for the most part. I would say that the inquirer does not need to include the code does not work. I think that is fairly obvious given the context of the problem that they are asking on StackOverflow.
+
 4. Does the question describe any attempted solutions?
 
+The question does describe the possible add function that they defined. However, I would have liked the inquirer to say what their solution would look like.
 
 Then, using what you know about R and Python, try to debug the problem using the strategies in [the debugging chapter](https://srvanderplas.github.io/stat-computing-r-python/part-gen-prog/06-debugging.html). Once you are thoroughly stumped, or you believe you have solved the problem, compare your solutions to those given on StackOverflow using the link.
 
 ## Why Doesn't this R function work?
-
+<!-- <!-- Original Prompt --> -->
 > I created the following function to append new strings on a vector of strings called "meals". However, when I use this function to append an string input into my "meals" vector, it does not work.
 
-```
- add <- function(str) {
+add <- function(str) {
+     meals <- append(meals, as.character(str))
+   }
+
+The issue this code has is that in order to append a vector to a vector the vector must already exist. The creator has not defined a vector "meals" which to append values to. One possible solution is given below.
+    
+    
+```{r}
+#Running Original Code
+# add <- function(str) {
+#      meals <- append(meals, as.character(str))
+#    }
+
+#Proposed Solutions
+
+ add <- function(str){
       meals <- append(meals, as.character(str))  
     }
-```
+    
+    
+add("syrup")
 
+#Error in add("syrup") : object 'meals' not found
+
+## Possible solution 
+
+ add_poss.sol1 <- function(str){
+      meals <- c()
+      meals <- append(meals, as.character(str))  
+ }
+ 
+print(add_poss.sol1("syrup"))
+
+## Another possible solution
+
+# you can predefine a vector meals and add this as an argument to your function
+
+meals2 <- c("breakfast", "lunch", "dinner")
+add_poss.sol2 <- function(str, meals){
+      meals <- append(meals, as.character(str))  
+ }
+ 
+
+print(add_poss.sol2("syrup", meals2))
+
+```
+  
 [Link](https://stackoverflow.com/questions/39795961/why-doesnt-this-r-function-work?noredirect=1&lq=1) to original SO post. 
 
 
 ---
+Prompt #2
+
 
 1. Are the question and problem description complete?
 
-> <!-- Your answer here -->
+No, not at all. This inquiry gives no context to what the user desires as an answer or what the initial problem even is.
 
 2. Is the issue reproducible? Does it have a description of the problem, with code that reproduces the problem? What could improve it?
 
-> <!-- Your answer here -->
+No the problem won't be reprpoducible because they are calling a local file. Even if they uploaded the necessary file to run the code this still makes it hard on the debugger to download and then solve the problem.
 
 3. Is the example minimal? Does it include extra code or information that is not necessary?
 
-> <!-- Your answer here -->
+Yes it includes this rant about some course they are enrolled in through John Hopkins. This irrelevant and pointless to include.
 
 4. Does the question describe any attempted solutions?
 
-> <!-- Your answer here -->
+The description does include attempted solutions at least but it's just poor.
 
 
 ## Function not working R
-
+<!-- <!-- #Orginal prompt --> -->
 > I've never programmed before and am trying to learn. I'm following that "coursera" course that I've seen other people post about — a course offered by Johns Hopkins on R programming.
 
 > Anyway, this was supposed to be my first function. Yet, it doesn't work! But when I type out all the steps individually, it runs just fine... Can anyone tell me why?
 
-```
-pollutantmean <- function(directory, pollutant, id = 1:332){
-    x<- list.files("/Users/mike******/Desktop/directory", full.names=TRUE)
-    y<- lapply(x, read.csv)
-    z<- do.call(rbind.data.frame, y[id])
+<!-- # pollutantmean <- function(directory, pollutant, id = 1:332){ -->
+<!-- #     x<- list.files("/Users/mike******/Desktop/directory", full.names=TRUE) -->
+<!-- #     y<- lapply(x, read.csv) -->
+<!-- #     z<- do.call(rbind.data.frame, y[id]) -->
+<!-- #  -->
+<!-- #     mean(z$pollutant, na.rm=TRUE) -->
+<!-- # } -->
+<!-- # pollutantmean(specdata,nitrate,1:10) -->
+<!-- # [1] NA -->
+<!-- # Warning message: -->
+<!-- # In mean.default(z$pollutant, na.rm = TRUE) : -->
+<!-- #   argument is not numeric or logical: returning NA -->
+<!-- # x<- list.files("/Users/mike******/Desktop/specdata",full.names=TRUE) -->
+<!-- # y<- lapply(x,read.csv) -->
+<!-- # z<- do.call(rbind.data.frame,y[1:10]) -->
+<!-- # mean(z$nitrate,na.rm=TRUE) -->
+<!-- # [1] 0.7976266 -->
 
-    mean(z$pollutant, na.rm=TRUE)
-}
-pollutantmean(specdata,nitrate,1:10)
-[1] NA
-Warning message:
-In mean.default(z$pollutant, na.rm = TRUE) :
-  argument is not numeric or logical: returning NA
+```{r}
+## Proposed Solution ##
 
-####
+# It's very difficult to solve this problem because the error is not reproducible because the data you are reading in is stored to your local machine
 
-x<- list.files("/Users/mike******/Desktop/specdata",full.names=TRUE)
-y<- lapply(x,read.csv)
-z<- do.call(rbind.data.frame,y[1:10])
-mean(z$nitrate,na.rm=TRUE)
-[1] 0.7976266
+#You are getting this error because the elements in your dataframe z in the column pollutant are not numeric in nature. It has to do with how you are parameterizing your function. You ahve the parameters directory, pollutant, id = 1:332 but never use directory or pollutant in your function. Look at the data of specdata, nitrate, and 1:10 in your function.
+
 ```
 
 
 [Link](https://stackoverflow.com/questions/24123224/function-not-working-r/24141502)
 
-
 ---
+Prompt 3
 
 1. Are the question and problem description complete?
 
-> <!-- Your answer here -->
+I would say that maybe the question can be expressed a bit more explicitly but overall I understand the issue that the inquirier is running into. They have the error message posted which is very helpful.
 
 2. Is the issue reproducible? Does it have a description of the problem, with code that reproduces the problem? What could improve it?
 
-> <!-- Your answer here -->
+The issue won't be reporducible because they are calling files which are stored locally. This means that the error will come from the fact that I can't load in the data when I try to run the code on my machine.
 
 3. Is the example minimal? Does it include extra code or information that is not necessary?
 
-> <!-- Your answer here -->
+I would say the example is minimal. The problem states what is wrong and gives the error. I would say the prompt is fairly concise and successfully gets the point across of what is the problem without additonal "fluff".
 
 4. Does the question describe any attempted solutions?
 
-> <!-- Your answer here -->
+The problem does give the code which is not functioning which is very helpful. The inquirer does not state anything about alternative solutions tried other than maybe checking for spelling. Also th
 
 
 ## Inexplicable error when trying to export my R notebook
 
+<!-- Orginal Prompt -->
 > Getting this error from R Markdown when trying to export my .RMD
 
 ```
@@ -136,24 +194,14 @@ You can find this sample file [here](https://raw.githubusercontent.com/unl-stati
 
 [Link](https://stackoverflow.com/questions/44193367/inexplicable-error-when-trying-to-export-my-r-notebook)
 
----
+```{r}
+# My proposed solution 
 
-1. Are the question and problem description complete?
+# Your code is not reproducible making it diffucult to wokr with. On thing I would point out is that you ahve loaded library(ggplot2, dplyr) in the same line. I would suggest breaking this out into library(ggplot2) and library(dplyr). I suspect that's why you can see the graphics is because R is loading in ggplot2 but is failing to call the library of dplyr
+```
 
-> <!-- Your answer here -->
-
-2. Is the issue reproducible? Does it have a description of the problem, with code that reproduces the problem? What could improve it?
-
-> <!-- Your answer here -->
-
-3. Is the example minimal? Does it include extra code or information that is not necessary?
-
-> <!-- Your answer here -->
-
-4. Does the question describe any attempted solutions?
-
-> <!-- Your answer here -->
-
+--- 
+Prompt #4
 
 ## Python if elif else statement
 
@@ -164,52 +212,105 @@ You can find this sample file [here](https://raw.githubusercontent.com/unl-stati
 > What ever my total is the same amount comes out as $6 for US and $8 for Canada. I can't seem to get pass that.
 
 > Example:
-
-```
-total = raw_input('What is the total amount for your online shopping?')
-country = raw_input('Shipping within the US or Canada?')
+<!-- Original Prompt -->
 
 if country == "US":
     if total <= "50":
         print "Shipping Costs $6.00"
     elif total <= "100":
-            print "Shipping Costs $9.00"
+          print "Shipping Costs $9.00"
     elif total <= "150":
-            print "Shipping Costs $12.00"
+          print("Shipping Costs $12.00")
     else:
         print "FREE"
-
 if country == "Canada":
     if total <= "50":
-        print "Shipping Costs $8.00"
-    elif total <= "100":
+        print("Shipping Costs $8.00")
+    elif total <= 100:
         print "Shipping Costs $12.00"
     elif total <= "150":
         print "Shipping Costs $15.00"
     else:
         print "FREE"
+
+1. Are the question and problem description complete?
+
+I know what the person is asking. They have a faulty code which produces something they don't want and are describing what they are gettin which is a solid start. However, I would say a more exact description if the problem would be better to be able to figure out.
+
+2. Is the issue reproducible? Does it have a description of the problem, with code that reproduces the problem? What could improve it?
+
+The code itself is not reporducing the problem. The code does produce multiple errors but most have to do with comparisons and then the actual syntax of the print statements. So the problem the user is describing is not being reproduced in the code given.
+
+
+3. Is the example minimal? Does it include extra code or information that is not necessary?
+
+I wouldn't say there is extra information at all. If anything I would want a more thorough description of the problem to be able to work towards a desired solution. Luckily the code provided is enough to go off of.
+
+4. Does the question describe any attempted solutions?
+
+The question gives code and a description of waht is happening but does not mention any alternative solutions tried. I think that giving other things a go would be best for the is inquirier.
+
+total = int(input('What is the total amount for your online shopping?'))
+country = input('Shipping within the US or Canada?')
+
+
+
+```{python}
+#####
+#Running Original Code 
+# if country == "US":
+#     if total <= "50":
+#         print "Shipping Costs $6.00"
+#     elif total <= "100":
+#           print "Shipping Costs $9.00"
+#     elif total <= "150":
+#           print("Shipping Costs $12.00")
+#     else:
+#         print "FREE"
+# if country == "Canada":
+#     if total <= "50":
+#         print("Shipping Costs $8.00")
+#     elif total <= 100:
+#         print "Shipping Costs $12.00"
+#     elif total <= "150":
+#         print "Shipping Costs $15.00"
+#     else:
+#         print "FREE"
+
+# total = int(input('What is the total amount for your online shopping? '))
+# country = input('Shipping within the US or Canada? ') - original function attempt observed difference between sript and notebook
+
+# Proposed Solution
+
+total = 60
+country = "US"
+
+if country == "US":
+    if total <= 50:
+        print("Shipping Costs $6.00")
+    elif total <= 100:
+        print("Shipping Costs $9.00")
+    elif total <= 150:
+        print("Shipping Costs $12.00")
+    else:
+        print("FREE")
+
+if country == "Canada":
+    if total <= 50:
+        print("Shipping Costs $8.00")
+    elif total <= 100:
+        print("Shipping Costs $12.00")
+    elif total <= 150:
+        print("Shipping Costs $15.00")
+    else:
+        print("FREE")
+
 ```
 
 
 [Link](https://stackoverflow.com/questions/19371643/python-if-elif-else-statement)
 
 ---
-
-1. Are the question and problem description complete?
-
-> <!-- Your answer here -->
-
-2. Is the issue reproducible? Does it have a description of the problem, with code that reproduces the problem? What could improve it?
-
-> <!-- Your answer here -->
-
-3. Is the example minimal? Does it include extra code or information that is not necessary?
-
-> <!-- Your answer here -->
-
-4. Does the question describe any attempted solutions?
-
-> <!-- Your answer here -->
 
 
 # Professional Communication
@@ -227,6 +328,7 @@ In your slides:
 - Show a picture of your favorite animal
 - Provide your favorite plot, generated in either R or python. (This can be one you've generated in this class). Ensure that the code does not show, but the plot does.
 - Provide a link to your CV, which you will generate in the next part.
+
 
 ## CV
 
